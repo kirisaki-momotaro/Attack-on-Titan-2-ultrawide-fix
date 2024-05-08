@@ -1,4 +1,4 @@
-#PLACE INSIDE STEAM FOLDER USUALLY IN: Steam/steamapps/common/AoT2
+#PLACE INSIDE STEAM FOLDER, USUALLY IN: Steam/steamapps/common/AoT2
 #Replaces corresponding bytes with the new ones given in a file.
 def hex_replace(file_path, search_hex, replace_hex):
     try:
@@ -20,7 +20,7 @@ def hex_replace(file_path, search_hex, replace_hex):
         # Write the modified data back to the same file
         with open(file_path, 'wb') as file:
             file.write(data)
-        print("File updated successfully.")
+        print(f'Fix applied successfully {file_path}.')
 
     except FileNotFoundError:
         print("Error: The file was not found. Please check the file path.")
@@ -28,6 +28,7 @@ def hex_replace(file_path, search_hex, replace_hex):
         print(f"Error: {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+   
 
 
 
@@ -49,8 +50,8 @@ while True:
         break
 
 
-file_paths = ['AOT2_AS.exe','AOT2_EU.exe','AOT2_JP.exe']
-  # Example replacement pattern
+file_paths = ['AOT2_AS.exe','AOT2_EU.exe','AOT2_JP.exe']  
 for file_path in file_paths:
     hex_replace(file_path, search_hex, replace_hex)
-print('Fix applied successfully.')
+
+input('Press any key to exit.')
